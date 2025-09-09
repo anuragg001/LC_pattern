@@ -17,3 +17,5 @@ int main(){
     return 0;
 }
 //op -> 20
+//Time Complexity: O(2^n)
+//Space Complexity: O(n) for recursion stack space
