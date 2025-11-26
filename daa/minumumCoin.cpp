@@ -21,6 +21,7 @@ int main(){
 //why fails for all denominations?
 //Ans -> because greedy approach works for specific denominations only like US coins
 //eg: 1,5,10,25
+//What is canonical coin systems
 //but fails for denominations like 1,3,4
 //eg: amount=6
 //greedy approach will give 4+1+1=3 coins
