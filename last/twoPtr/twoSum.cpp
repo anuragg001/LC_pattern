@@ -8,7 +8,7 @@ pair<int,int> sum(vector<int>&arr,int n,int target){
     while(left<right){
         int sum = arr[left]+arr[right];
         if(sum==target){
-            return {arr[left],arr[right]};
+            return {left,right};
         }else if(sum<target){
             left++;
         }else{
