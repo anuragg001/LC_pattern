@@ -28,7 +28,7 @@ string minWindow(string &s,string &t){
     }
     int i=0,j=0,ans=INT_MAX,index=-1;
     //here ans is storing minimum length of substring 
-
+    ///coment 
     while(j<n){
         mpp[s[j]]--; //decerese the cnt of char
         if(mpp[s[j]]>=0){

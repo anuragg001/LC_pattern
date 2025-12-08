@@ -1,84 +1,54 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int cntAnagram(string &s1,string &pattern){
-    int n =s1.size();
-    int k = pattern.size();
-    unordered_map<char,int>mpp;
-    int i=0,j=0;
-    int cnt =0;
-    for(auto ch:pattern){
-        mpp[ch]++;
-    }
-    int match =0;
-    while(j<n){
-        if(mpp.find(s1[j])!=mpp.end()){
-            mpp[s1[j]]--;
-            if(mpp[s1[j]]==0){
-                match++;
-            }
+//the problem statement is -> Given a string s and a pattern p,
+// find the count of all anagram occurrences of the pattern in the string.
 
-        }
-        if(j-i+1<k){
-            j++;
-        }else if(j-i+1==k){
-            if(match==mpp.size()){
-                cnt++;
-            }
-            if(mpp.find(s1[i])!=mpp.end()){
-                mpp[s1[i]]++;
-                if(mpp[s1[i]]==0){
-                    match--;
-                }
-                // mpp[s1[i]]++;
-            }
-            i++;
-            j++;
-        }
-
-    }
-    return cnt;
-}
 
 int cnt(string &s,string &pattern){
     int n = s.size();
     int k = pattern.size();
+    int i=0,j=0;
     unordered_map<char,int>mpp;
-    int cnt = 0;
-    int i =0,j=0;
-    int match=0;
+    int mapCnt=0;
+    int ans=0;
     for(auto ch:pattern){
         mpp[ch]++;
     }
 
     while(j<n){
+        //calcutaion
         if(mpp.find(s[j])!=mpp.end()){
             mpp[s[j]]--;
             if(mpp[s[j]]==0){
-                match++;
+                mapCnt++;
             }
         }
-        //expand the window
         if(j-i+1<k){
             j++;
         }else if(j-i+1==k){
-            if(match ==mpp.size()){
-                cnt++;
+            //ansCalcuation
+            //why comparing mapCount with map size??
+            //ans->if all characters frequency become zero then only we can say that we found an anagram
+            if(mapCnt==mpp.size()){
+                ans++;
             }
-            //exclude i basically shrinking the window
+            //slide the window
             if(mpp.find(s[i])!=mpp.end()){
                 mpp[s[i]]++;
-                if(mpp[s[i]]==0){
-                    match--;
+                //why comparing mpp[s[i]] with 1??
+                //ans-> because before sliding the window if frequency was 0 and after sliding it becomes 1 then we need to reduce the mapCnt
+                if(mpp[s[i]]==1){
+                    mapCnt--;
                 }
+
             }
             i++;
             j++;
         }
 
-
     }
-    return cnt;
+    return ans;
 }
 
 int main(){

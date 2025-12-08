@@ -19,7 +19,24 @@ int longest(string&s){
     }
     return maxlen;
 }
-   
+   //using sliding window
+
+   int longestSliding(string &s){
+    int n  = s.size();
+    int i=0,j=0;
+    int maxlen = 0;
+    unordered_map<char,int>mpp;
+    while(j<n){
+        mpp[s[j]]++;
+        while(mpp[s[j]]>1){
+            mpp[s[i]]--;
+            i++;
+        }
+        maxlen = max(maxlen,j-i+1);
+        j++;
+    }
+    return maxlen;
+   }
 
 
 int main(){

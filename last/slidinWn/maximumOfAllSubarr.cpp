@@ -1,39 +1,44 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//the pronnlem statement is -> Given an array of integers arr and an integer k, 
+// find the maximum element of all subarrays of size k.
+
+/*
+    the reason why to use deque is
+    1. we can push and pop from both ends in O(1) time
+    2. we can maintain the decreasing order of elements in the deque
+    3. the front of the deque always contains the maximum element of the current window
+
+
+
+
+*/
+
 vector<int> maxOfallSubarr(vector<int>&arr,int k){
     int n = arr.size();
+    int i =0,j=0;
     deque<int>dq;
     vector<int>res;
-    int i=0,j=0;
-
     while(j<n){
-        //calculation
-        while(!dq.empty() && dq.back()<arr[j]){
-            dq.pop_back();
+        while(!dq.empty() && dq.front()<arr[j]){
+            dq.pop_front();
         }
         dq.push_back(arr[j]);
-        //window size not reached
 
         if(j-i+1<k){
             j++;
-        }
-        //window Size reached
-        else if(j-i+1==k){
+        }else if(j-i+1==k){
             res.push_back(dq.front());
-            //remoove element i.e i
             if(dq.front()==arr[i]){
                 dq.pop_front();
-
             }
             i++;
             j++;
         }
-        
     }
     return res;
 }
-
 
 
 
