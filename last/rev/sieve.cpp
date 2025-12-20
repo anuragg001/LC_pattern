@@ -15,7 +15,7 @@ void seive(int n){
         if(prime[i]==1){
             cout<<i<<" ";
         }
-    }
+    }        
 }
 
 
