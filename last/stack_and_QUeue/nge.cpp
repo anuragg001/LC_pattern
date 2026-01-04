@@ -21,19 +21,17 @@ vector<int>nge(vector<int>&arr){
 
 // optimal through stack
 vector<int>nge2(vector<int>&arr){
-    int n = arr.size();
-    vector<int>res(n,-1);
-    stack<int>s;
-    for(int i = n-1;i>=0;i--){
-        while(!s.empty() && s.top()<=arr[i]){
-            s.pop();
-        }
-        if(!s.empty()){
-            res[i]=s.top();
-        }
-        s.push(arr[i]);
+   int n = arr.size();
+   vector<int>res(n,-1);
+   stack<int>st;
+   for(int i =0;i<n;i++){
+    while(!st.empty() && arr[st.top()]<arr[i]){
+        res[st.top()]= arr[i];
+        st.pop();
     }
-    return res;
+    st.push(i);
+   }
+   return res;
 }
 // circular nge
 vector<int>cnge(vector<int>&arr){
