@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Hustle/LCpattern/SlidinWind",
-      "program": "d:/Hustle/LCpattern/SlidinWind/build/Debug/outDebug",
+      "cwd": "d:/Hustle/LCpattern/last/stack_and_Queue",
+      "program": "d:/Hustle/LCpattern/last/stack_and_Queue/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
