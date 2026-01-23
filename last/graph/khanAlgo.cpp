@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//cycle detectetion in directed graph is aka kahn's algorithm 
+//cycle detectetion in directed graph with the help of bfs  is aka kahn's algorithm 
 
 class Solution {
   public:
