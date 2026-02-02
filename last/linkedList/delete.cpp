@@ -39,5 +39,22 @@ Node* deleteMid(Node* head){
 }
 //optimal approach using slow and fast pointer 
 Node* deleteMid2(Node* head){
+    if(head == nullptr || head->next == nullptr)return nullptr;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    Node* prev = nullptr; // to keep track of the node before slow
+
+    while(fast!= nullptr && fast->next != nullptr){
+        prev = slow;
+        slow=slow->next;
+        fast = fast->next->next;
+
+    }
+    //now slow is at mid node 
+    prev->next = slow->next;
+    delete slow;
+    return head;
 
 }
